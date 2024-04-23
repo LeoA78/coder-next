@@ -12,7 +12,6 @@ export const GlobalProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchOrdenanzas = async () => {
-      const ordenanzas = await getOrdenanzas();
       setOrdenanzas(ordenanzas);
     };
 
