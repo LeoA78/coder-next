@@ -1,5 +1,6 @@
 'use client'
 import { usePathname } from 'next/navigation'
+import SearchBar from './ui/SearchBar';
 
 const Header = () => {
 
@@ -18,6 +19,7 @@ const Header = () => {
         <p className="text-3xl text-bold text-slate-100">
         Digesto Online
         </p>
+        <SearchBar />
         <nav href="#" className='flex justify-between gap-2'>
           {links.map((link) => (
             <a key={link.id} href={link.url} className={`${pathName === link.url ? 'font-bold' : ''} text-base text-slate-100 p-3`}>{link.name}</a>

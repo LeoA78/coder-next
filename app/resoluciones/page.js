@@ -1,14 +1,16 @@
 import React from 'react'
-import { resoluciones } from '../mocks/resoluciones'
 import Card from '../components/ui/Card'
+import { getResoluciones } from '../services/directus'
 
-const Resoluciones = () => {
+const Resoluciones = async () => {
+    const resoluciones = await getResoluciones();
+
     return (
         <main className="flex min-h-screen flex-col items-center justify-between px-24">
             <h1 className='text-4xl m-10'>Resoluciones</h1>
 
-            {resoluciones.map(({ id, description }) =>
-                <Card key={id} title={id} description={description} url={`https://concejopicotruncado.com/resoluciones/${id}.pdf`} />
+            {resoluciones.map(({ id,number, description, fileUrl }) =>
+                <Card key={id} title={number} description={description} url={fileUrl} />
             )}
         </main>
     )
